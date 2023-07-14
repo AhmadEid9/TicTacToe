@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>
+        <h1 class="head-top">
             Tic Tac Toe
         </h1>
         <div class="game">
@@ -22,22 +22,29 @@
                     </label>
                     <input id="second_player_input" type="text" placeholder="Player 2's name">
                 </div>
-                <button type="button" id="game_started"> Start the game</button>
+                <button type="button" id="game_started" class="start-btn"> Start the game</button>
             </div>
             <div id="board" class="board">
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
+                <div class="cell no-action" data-cell></div>
+                <div class="cell no-action" data-cell></div>
+                <div class="cell no-action" data-cell></div>
+                <div class="cell no-action" data-cell></div>
+                <div class="cell no-action" data-cell></div>
+                <div class="cell no-action" data-cell></div>
+                <div class="cell no-action" data-cell></div>
+                <div class="cell no-action" data-cell></div>
+                <div class="cell no-action" data-cell></div>
             </div>
-            <div class="scores">
-                <label id="first_player_label"> First player</label>
-                <label id="second_player_label"> Second player</label>
+            <div class="score-div">
+                <div class="first-player-score-div">
+                    <label id="first_player_label">First player</label>
+                </div>
+                <div class="second_player_score-div">
+                    <label id="second_player_label"> Second player</label>
+                </div>
+                <div class="game-end">
+                    <label id="winning-message"></label>
+                </div>
             </div>
         </div>
 

@@ -7,6 +7,43 @@ html, body{
     width: 100%;
 }
 
+.head-top{
+    width: 100%;
+}
+
+.cell.x::before,
+.cell.x::after{
+    background-color: rgb(219, 28, 28);
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::after{
+    background-color: rgba(219, 28, 28, 0.685);
+}
+
+.cell.x::before,
+.cell.x::after, 
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after
+{
+    content: '';
+    width: 9px;
+    height: 90px;
+    
+    position: absolute;
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before{
+    transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after{
+    transform: rotate(-45deg);
+}
+
 .credentials{
     display: flex;
     flex-direction: column;
@@ -26,7 +63,7 @@ html, body{
     display: flex;
     justify-content: center;
     height: 100%;
-    width: 100%;
+    width: 80%;
     gap: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -39,30 +76,70 @@ html, body{
     gap: 5px;
 }
 
-.circle{
-    height: 50px;
-    width: 50px;
-    border: solid;
-    border-color: blue;
-    border-radius: 50%;
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after
+{
+    content: '';
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    border-radius: 100%;
 }
 
-.cross{
-    height: 50px;
-    width: 50px;
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after{
+    width: 70px;
+    height: 70px;
+    background-color: white;
+
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before{
+    background-color: blue;
+}
+
+.cell.x, .cell.cell.circle{
+    cursor: no;
 }
 
 .outline{
     border: solid;
 }
 
-.hash-gird{
+.board{
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
     display: grid;
     justify-content: center;
-    align-content: center;
-    justify-items: center;
-    align-items: center;
     grid-template-columns: repeat(3, auto)
+}
+
+.start-btn{
+    margin: 10px 0px;
+}
+
+.cell{
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(134, 134, 134);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.no-action{
+    pointer-events: none;
+}
+
+.score-div{
+    width: 35vw;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: baseline;
 }
