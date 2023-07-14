@@ -61,7 +61,7 @@ function handleClick(e) {
         endGame()
     } else{
         if (checkDraw()) {
-            winning_message.innerText = "No one winned"
+            winning_message.innerText = "No one won the match"
             endGame()
         }
     }
