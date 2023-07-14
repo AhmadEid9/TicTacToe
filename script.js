@@ -38,7 +38,7 @@ function startGame(e) {
 
 
 cell_elements.forEach( cell => {
-    cell.addEventListener('click', handleClick, { once : true })
+    cell.addEventListener('click', handleClick)
 });
 
 
