@@ -31,7 +31,9 @@ function startGame(e) {
     second_player_label.innerText = second_player_name.value + " " + second_player_score
     cell_elements.forEach( cell => {
         cell.classList.remove("no-action")
+        cell.classList.remove(x_class, circle_class)
     });
+    
     board.classList.remove(x_class, circle_class)
     board.classList.add(x_class)
 }
@@ -47,7 +49,6 @@ function handleClick(e) {
     const cell = e.target
     const current_turn = circle_turn ? circle_class : x_class
     placeMark(cell, current_turn)
-
     swapTurns()
     board.classList.remove(x_class, circle_class)
     board.classList.add(circle_turn ? circle_class : x_class)
@@ -58,6 +59,11 @@ function handleClick(e) {
         first_player_label.innerText = first_player_name.value + " " + first_player_score
         second_player_label.innerText = second_player_name.value + " " + second_player_score
         endGame()
+    } else{
+        if (checkDraw()) {
+            winning_message.innerText = "No one winned"
+            endGame()
+        }
     }
 }
 
@@ -76,6 +82,12 @@ function checkWin(current_turn) {
         })
     })
 }
+
+function checkDraw() {
+    return [...cell_elements].every(cell => {
+        return cell.classList.contains(x_class) || cell.classList.contains(circle_class)
+        })
+    }
 
 function endGame(draw) {
     cell_elements.forEach( cell => {
